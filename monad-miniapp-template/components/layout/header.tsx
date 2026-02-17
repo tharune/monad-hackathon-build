@@ -21,7 +21,10 @@ export function Header() {
           </Link>
           {address ? (
             <div className="flex items-center gap-2">
-              <span className="max-w-[120px] truncate text-sm text-neutral-500 sm:max-w-[160px]" title={address}>
+              <span
+                className="max-w-[120px] truncate text-sm text-neutral-500 sm:max-w-[160px]"
+                title={address}
+              >
                 {address.slice(0, 6)}…{address.slice(-4)}
               </span>
               <button

@@ -1,4 +1,11 @@
-import { createPublicClient, createWalletClient, custom, http, type WalletClient, type PublicClient } from 'viem'
+import {
+  createPublicClient,
+  createWalletClient,
+  custom,
+  http,
+  type WalletClient,
+  type PublicClient,
+} from 'viem'
 import { chain } from './chain'
 
 declare global {
@@ -45,7 +52,7 @@ export async function connect(): Promise<`0x${string}` | undefined> {
     console.warn('No injected provider (window.ethereum)')
     return undefined
   }
-  const accounts = await ethereum.request({ method: 'eth_requestAccounts' }) as `0x${string}`[]
+  const accounts = (await ethereum.request({ method: 'eth_requestAccounts' })) as `0x${string}`[]
   return accounts?.[0]
 }
 

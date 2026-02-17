@@ -23,7 +23,10 @@ export function OrderCreateCard({ onSubmit, isPending }: OrderCreateCardProps) {
       <h2 className="mb-3 text-lg font-semibold text-neutral-900 dark:text-white">Create order</h2>
       <form onSubmit={handleSubmit} className="space-y-3">
         <div>
-          <label htmlFor="totalAmount" className="mb-1 block text-sm font-medium text-neutral-600 dark:text-neutral-400">
+          <label
+            htmlFor="totalAmount"
+            className="mb-1 block text-sm font-medium text-neutral-600 dark:text-neutral-400"
+          >
             Total amount
           </label>
           <input
@@ -36,7 +39,10 @@ export function OrderCreateCard({ onSubmit, isPending }: OrderCreateCardProps) {
           />
         </div>
         <div>
-          <label htmlFor="numSlices" className="mb-1 block text-sm font-medium text-neutral-600 dark:text-neutral-400">
+          <label
+            htmlFor="numSlices"
+            className="mb-1 block text-sm font-medium text-neutral-600 dark:text-neutral-400"
+          >
             Slices (1–20)
           </label>
           <input

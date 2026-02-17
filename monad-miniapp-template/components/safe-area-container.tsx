@@ -5,10 +5,7 @@ interface SafeAreaContainerProps {
   insets?: SafeAreaInsets
 }
 
-export const SafeAreaContainer = ({
-  children,
-  insets,
-}: SafeAreaContainerProps) => (
+export const SafeAreaContainer = ({ children, insets }: SafeAreaContainerProps) => (
   <div
     className="flex min-h-screen flex-col"
     style={{

@@ -29,7 +29,8 @@ export function ResponsiveLayout({ children }: { children: React.ReactNode }) {
         <Header />
         <main className="min-h-[calc(100vh-3.5rem)] w-full max-w-5xl mx-auto px-4 py-6">
           <p className="mb-4 rounded-lg bg-amber-50 p-3 text-sm text-amber-800 dark:bg-amber-950/50 dark:text-amber-200">
-            Open in Farcaster for the mini app experience, or use the header to connect a wallet on web.
+            Open in Farcaster for the mini app experience, or use the header to connect a wallet on
+            web.
           </p>
           {children}
         </main>

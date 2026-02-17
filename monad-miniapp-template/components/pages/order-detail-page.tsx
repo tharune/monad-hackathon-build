@@ -47,17 +47,15 @@ export function OrderDetailPage({ orderId }: OrderDetailPageProps) {
       </div>
 
       <h1 className="text-2xl font-bold text-neutral-900 dark:text-white">Order detail</h1>
-      <p className="break-all font-mono text-sm text-neutral-500 dark:text-neutral-400">{orderId}</p>
+      <p className="break-all font-mono text-sm text-neutral-500 dark:text-neutral-400">
+        {orderId}
+      </p>
 
       <ProgressBar value={executedCount} max={numSlices} label="Slices executed" />
 
       <div>
         <h2 className="mb-2 text-lg font-semibold text-neutral-900 dark:text-white">Slices</h2>
-        <SliceGrid
-          slices={slices}
-          onExecute={handleExecute}
-          isExecuting={isExecuting}
-        />
+        <SliceGrid slices={slices} onExecute={handleExecute} isExecuting={isExecuting} />
       </div>
 
       <LiveFeed events={events} maxHeight="10rem" />

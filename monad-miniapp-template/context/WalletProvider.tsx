@@ -17,7 +17,8 @@ const InjectedWalletContext = createContext<InjectedWalletContextValue | undefin
 
 export function useInjectedWallet(): InjectedWalletContextValue {
   const ctx = useContext(InjectedWalletContext)
-  if (ctx === undefined) throw new Error('useInjectedWallet must be used within InjectedWalletProvider')
+  if (ctx === undefined)
+    throw new Error('useInjectedWallet must be used within InjectedWalletProvider')
   return ctx
 }
 
@@ -36,9 +37,10 @@ export function InjectedWalletProvider({ children }: InjectedWalletProviderProps
     try {
       const acc = await walletLib.connect()
       setAddress(acc)
-      const hexChainId = typeof window !== 'undefined' && window.ethereum
-        ? await window.ethereum.request({ method: 'eth_chainId' }) as string
-        : undefined
+      const hexChainId =
+        typeof window !== 'undefined' && window.ethereum
+          ? ((await window.ethereum.request({ method: 'eth_chainId' })) as string)
+          : undefined
       if (hexChainId) setChainId(Number.parseInt(hexChainId, 16))
     } finally {
       setIsConnecting(false)
@@ -68,15 +70,21 @@ export function InjectedWalletProvider({ children }: InjectedWalletProviderProps
     ethereum.on?.('accountsChanged', onAccountsChanged)
     ethereum.on?.('chainChanged', onChainChanged)
 
-    ethereum.request({ method: 'eth_accounts' }).then((accounts: unknown) => {
-      const list = Array.isArray(accounts) ? accounts : []
-      setAddress((list[0] as `0x${string}`) ?? undefined)
-    }).catch(() => {})
+    ethereum
+      .request({ method: 'eth_accounts' })
+      .then((accounts: unknown) => {
+        const list = Array.isArray(accounts) ? accounts : []
+        setAddress((list[0] as `0x${string}`) ?? undefined)
+      })
+      .catch(() => {})
 
-    ethereum.request({ method: 'eth_chainId' }).then((id: unknown) => {
-      const num = typeof id === 'string' ? Number.parseInt(id, 16) : Number(id)
-      if (!Number.isNaN(num)) setChainId(num)
-    }).catch(() => {})
+    ethereum
+      .request({ method: 'eth_chainId' })
+      .then((id: unknown) => {
+        const num = typeof id === 'string' ? Number.parseInt(id, 16) : Number(id)
+        if (!Number.isNaN(num)) setChainId(num)
+      })
+      .catch(() => {})
 
     return () => {
       ethereum.removeListener?.('accountsChanged', onAccountsChanged)
@@ -93,9 +101,5 @@ export function InjectedWalletProvider({ children }: InjectedWalletProviderProps
     isInjectedAvailable,
   }
 
-  return (
-    <InjectedWalletContext.Provider value={value}>
-      {children}
-    </InjectedWalletContext.Provider>
-  )
+  return <InjectedWalletContext.Provider value={value}>{children}</InjectedWalletContext.Provider>
 }

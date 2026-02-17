@@ -29,7 +29,9 @@ export function BottomNav() {
                   : 'text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300'
               }`}
             >
-              <span className="text-lg" aria-hidden>{icon}</span>
+              <span className="text-lg" aria-hidden>
+                {icon}
+              </span>
               {label}
             </Link>
           )

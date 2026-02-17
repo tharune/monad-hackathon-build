@@ -47,9 +47,7 @@ export function FarcasterActions() {
             <button
               type="button"
               className="bg-white text-black rounded-md p-2 text-sm"
-              onClick={() =>
-                actions?.signIn({ nonce: '1201', acceptAuthAddress: true })
-              }
+              onClick={() => actions?.signIn({ nonce: '1201', acceptAuthAddress: true })}
             >
               signIn
             </button>

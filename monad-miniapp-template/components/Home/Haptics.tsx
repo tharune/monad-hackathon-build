@@ -57,13 +57,16 @@ export function Haptics() {
     { type: 'selection', label: 'Selection Changed', category: 'Selection' },
   ]
 
-  const groupedButtons = hapticButtons.reduce((acc, button) => {
-    if (!acc[button.category]) {
-      acc[button.category] = []
-    }
-    acc[button.category].push(button)
-    return acc
-  }, {} as Record<string, typeof hapticButtons>)
+  const groupedButtons = hapticButtons.reduce(
+    (acc, button) => {
+      if (!acc[button.category]) {
+        acc[button.category] = []
+      }
+      acc[button.category].push(button)
+      return acc
+    },
+    {} as Record<string, typeof hapticButtons>
+  )
 
   return (
     <div className="border border-[#333] rounded-md p-4">
@@ -91,16 +94,10 @@ export function Haptics() {
             </div>
           ))
         ) : (
-          <p className="text-sm text-gray-400">
-            Haptics not available on this device
-          </p>
+          <p className="text-sm text-gray-400">Haptics not available on this device</p>
         )}
-        {result && (
-          <p className="mt-4 text-sm p-2 bg-gray-800 rounded">
-            {result}
-          </p>
-        )}
+        {result && <p className="mt-4 text-sm p-2 bg-gray-800 rounded">{result}</p>}
       </div>
     </div>
   )
-} 
+}

@@ -2,13 +2,7 @@ import { useFrame } from '@/components/farcaster-provider'
 import { farcasterMiniApp as miniAppConnector } from '@farcaster/miniapp-wagmi-connector'
 import { parseEther } from 'viem'
 import { monadTestnet } from 'viem/chains'
-import {
-  useAccount,
-  useConnect,
-  useDisconnect,
-  useSendTransaction,
-  useSwitchChain,
-} from 'wagmi'
+import { useAccount, useConnect, useDisconnect, useSendTransaction, useSwitchChain } from 'wagmi'
 
 export function WalletActions() {
   const { isEthProviderAvailable } = useFrame()
@@ -33,21 +27,15 @@ export function WalletActions() {
           <div className="flex flex-col space-y-4 justify-start">
             <p className="text-sm text-left">
               Connected to wallet:{' '}
-              <span className="bg-white font-mono text-black rounded-md p-[4px]">
-                {address}
-              </span>
+              <span className="bg-white font-mono text-black rounded-md p-[4px]">{address}</span>
             </p>
             <p className="text-sm text-left">
               Chain Id:{' '}
-              <span className="bg-white font-mono text-black rounded-md p-[4px]">
-                {chainId}
-              </span>
+              <span className="bg-white font-mono text-black rounded-md p-[4px]">{chainId}</span>
             </p>
             {chainId === monadTestnet.id ? (
               <div className="flex flex-col space-y-2 border border-[#333] p-4 rounded-md">
-                <h2 className="text-lg font-semibold text-left">
-                  Send Transaction Example
-                </h2>
+                <h2 className="text-lg font-semibold text-left">Send Transaction Example</h2>
                 <button
                   type="button"
                   className="bg-white text-black rounded-md p-2 text-sm"
@@ -60,10 +48,7 @@ export function WalletActions() {
                     type="button"
                     className="bg-white text-black rounded-md p-2 text-sm"
                     onClick={() =>
-                      window.open(
-                        `https://testnet.monadexplorer.com/tx/${hash}`,
-                        '_blank',
-                      )
+                      window.open(`https://testnet.monadexplorer.com/tx/${hash}`, '_blank')
                     }
                   >
                     View Transaction

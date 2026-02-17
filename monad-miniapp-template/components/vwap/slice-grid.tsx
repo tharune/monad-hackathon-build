@@ -33,10 +33,14 @@ export function SliceGrid({ slices, onExecute, isExecuting, disabled }: SliceGri
               : 'border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900'
           }`}
         >
-          <div className="text-xs font-medium text-neutral-500 dark:text-neutral-400">Slice {index + 1}</div>
+          <div className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
+            Slice {index + 1}
+          </div>
           <div className="mt-0.5 font-mono text-sm text-neutral-900 dark:text-white">{amount}</div>
           {executed ? (
-            <span className="mt-2 inline-block text-xs font-medium text-green-700 dark:text-green-400">Done</span>
+            <span className="mt-2 inline-block text-xs font-medium text-green-700 dark:text-green-400">
+              Done
+            </span>
           ) : (
             <button
               type="button"

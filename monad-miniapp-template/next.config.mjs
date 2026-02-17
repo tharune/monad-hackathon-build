@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  allowedDevOrigins: ["https://monad-hack.ngrok.dev"],
-};
+  allowedDevOrigins: ['https://monad-hack.ngrok.dev'],
+}
 
-export default nextConfig;
+export default nextConfig

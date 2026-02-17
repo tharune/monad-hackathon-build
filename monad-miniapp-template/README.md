@@ -64,6 +64,7 @@ Be sure to specify the correct port for your local server.
 ```bash
 NEXT_PUBLIC_URL=<url-from-cloudflared-or-ngrok>
 ```
+
 (Do not commit `.env`; it is gitignored.)
 
 #### Use the provided url
@@ -114,8 +115,7 @@ You can either edit the URLs for the images or replace the images in `public/ima
 Once you are happy with the changes, click `Refetch` in the Embed tool to get the latest configuration.
 
 > [!NOTE]
-> If you are developing locally, ensure that your Next.js app is running locally and the cloudflare tunnel is open. 
-
+> If you are developing locally, ensure that your Next.js app is running locally and the cloudflare tunnel is open.
 
 ## Customizing the Splash Screen
 
@@ -156,12 +156,11 @@ Upon opening the template Mini App, you should see a screen like this:
 
 <img width="1512" alt="4" src="https://github.com/user-attachments/assets/259a3dd2-17ee-4afd-8942-ad83a92f6335" />
 
-
 The code for this screen is in the `components/pages/app.tsx` file:
 
 ```tsx
 export default function Home() {
-  const { context } = useMiniAppContext();
+  const { context } = useMiniAppContext()
   return (
     // SafeAreaContainer component makes sure that the app margins are rendered properly depending on which client is being used.
     <SafeAreaContainer insets={context?.client.safeAreaInsets}>
@@ -178,15 +177,14 @@ You can remove or edit the code in this file to build your Mini App.
 
 <img width="1130" alt="5" src="https://github.com/user-attachments/assets/4448c141-d159-4538-abda-a175d02330a7" />
 
-
 Your Mini App receives various information about the user, including `username`, `fid`, `displayName`, `pfpUrl` and other fields.
 
 The template provides a helpful hook `useMiniAppContext` that you can use to access these fields:
 
 ```js
 export function User() {
-    const { context } = useMiniAppContext();
-    return <p>{context.user.username}</p>
+  const { context } = useMiniAppContext()
+  return <p>{context.user.username}</p>
 }
 ```
 
@@ -211,7 +209,7 @@ Learn more about Mini App actions [here](https://miniapps.farcaster.xyz/docs/sdk
 The template provides an easy way to access the actions via the `useMiniAppContext` hook!
 
 ```js
-const { actions } = useMiniAppContext();
+const { actions } = useMiniAppContext()
 ```
 
 An example for the same can be found in `components/Home/FarcasterActions.tsx` file.
@@ -248,7 +246,7 @@ You can use viem's `switchChain` or equivalent to prompt a chain switch.
 
 ```js
 // Switching to Monad Testnet
-switchChain({ chainId: 10143 });
+switchChain({ chainId: 10143 })
 ```
 
 The template has an example for the same in the `components/Home/WalletActions.tsx` file.
@@ -281,7 +279,7 @@ const farcasterConfig = {
         tags: ["monad", "farcaster", "miniapp", "template"], // Descriptive tags for search
         primaryCategory: "developer-tools",
         buttonTitle: "Launch Template",
-        splashImageUrl: `${appUrl}/images/splash.png`, // URL of image to show on loading screen.	
+        splashImageUrl: `${appUrl}/images/splash.png`, // URL of image to show on loading screen.
         splashBackgroundColor: "#ffffff", // Hex color code to use on loading screen.
     }
 };

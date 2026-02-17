@@ -1,8 +1,8 @@
 export interface SafeAreaInsets {
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
+  top?: number
+  bottom?: number
+  left?: number
+  right?: number
 }
 
 /** Mini app context from Farcaster SDK; re-exported for layout/UI. */

@@ -12,9 +12,7 @@ interface FrameContextValue {
   haptics: typeof sdk.haptics | undefined
 }
 
-const FrameProviderContext = createContext<FrameContextValue | undefined>(
-  undefined,
-)
+const FrameProviderContext = createContext<FrameContextValue | undefined>(undefined)
 
 export function useFrame() {
   const context = useContext(FrameProviderContext)

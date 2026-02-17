@@ -13,8 +13,12 @@ export function ProgressBar({ value, max, label, className = '' }: ProgressBarPr
     <div className={`w-full ${className}`}>
       {(label ?? value !== max) && (
         <div className="mb-1 flex justify-between text-sm">
-          {label && <span className="font-medium text-neutral-700 dark:text-neutral-300">{label}</span>}
-          <span className="text-neutral-500">{value} / {max}</span>
+          {label && (
+            <span className="font-medium text-neutral-700 dark:text-neutral-300">{label}</span>
+          )}
+          <span className="text-neutral-500">
+            {value} / {max}
+          </span>
         </div>
       )}
       <div className="h-2 w-full overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800">
