@@ -1,0 +1,11 @@
+# Environment and secrets — never commit
+.env
+.env.local
+.env.*.local
+*.pem
+
+# OS and editor
+.DS_Store
+*.swp
+*.swo
+Thumbs.db
